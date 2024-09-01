@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Freight big pro"
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#loader {
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    text-align: center;
+    /* display: none; */
+}
+
+#loader h1 {
+    font-size: 6.9vw;
+    font-weight: 100;
+    line-height: 5vw;
+    position: relative;
+    z-index: 9;
+    letter-spacing: -3px;
+    margin: 0; /* Ensures no margin affects centering */
+}
+
+#loader video {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 7;
+}
+
+#yellow1 {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    background-color: #F5E41B;
+    z-index: 8;
+}
+
+#yellow2 {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    background-color: #F5E41B;
+    z-index: 8;
+}
+
+#nav {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    padding: 30px 50px;
+}
+
+#nav svg path{
+    fill: #000;
+}
+
+#main {
+    background-color: black;
+}
+
+#page1 {
+    height: 100vh;
+    width: 100%;
+    background-color: #F5E41B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#page1 h1 {
+    font-size: 6.9vw;
+    font-weight: 100;
+    line-height: 5vw;
+    letter-spacing: -3px;
+}
+
+#page2 {
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    transition: all ease 0.2s;
+}
+
+
+.elem {
+    /* padding: 40px 0px; */
+    /* height: 00vh; */
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+}
+
+.elem .blur {
+    position: absolute;
+    width: 45%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(to right, #f5e31bf0, #F5E41B, #f5e31bf6);
+    box-shadow: 5px 0px 4px -1px #F5E41B, -5px 0px 4px -1px #F5E41B;
+    height: 100%;
+    z-index: 8;
+}
+
+
+
+.elem h2{
+    font-size: 6.8vw;
+    text-transform: uppercase;
+    font-weight: 100;
+    position: relative;
+    line-height: 6vw;
+    z-index: 9;
+    transition: all ease 0.2s;
+}
+
+.elem .moving {
+    overflow-x: hidden;
+    background-color: #F5E41B;
+    width: 100%;
+    white-space: nowrap;
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-45%) scaleY(0);
+    padding: 2px 0;
+    transition: all ease 0.3s;
+}
+
+.elem .moving .moving-in {
+    display: inline-block;
+    white-space: nowrap ;
+    animation-name: moving;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+} 
+
+.elem .moving .moving-in h5{
+    color: black;
+    display: inline-block;
+    font-size: 17px;
+    font-weight: 500;
+    font-family: gillroy;
+    margin-right: 35px;
+    text-transform: uppercase;
+    transition: all ease 0.3s;
+    opacity: 0;
+    transition-delay: 0.2s;
+}
+
+@keyframes moving {
+    from{
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.elem:hover .moving{
+    transform: translate(0,-45%) scaleY(1);
+}
+
+.elem:hover .moving h5{
+   opacity: 1;
+}
+
+.elem:hover h2 {
+    font-style: italic;
+}
+
+
+/* styles.css */
+
+#page3 {
+    padding: 64px 20px;
+    margin: 0;
+    /* height: 550vh; */
+    width: 100%;
+    background-color: white;
+}
+
+
+.image-container {
+    padding: 30px;
+    display: flex;
+    align-items: flex-start;
+    /* flex-wrap: wrap; */
+}
+.image-div {
+    /* height: 40vw; */
+    width: 30vw;
+    margin: 30px 10px; 
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3 / 2; /* Adjust aspect ratio to match your images */
+}
+
+.image-div img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: background-color 0.3s ease;
+    z-index: 9;
+    opacity: 0;
+}
+
+.overlay p {
+    font-size: 2.5vw;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    line-height: 2.5vw;
+}
+
+.image-div:hover .overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 1;
+}
+
+.image-div:hover img {
+    transform: scale(1.1);
+}
+
+.line:nth-child(1) .image-div:nth-child(2) {
+    height: 800px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#back {
+    position: absolute;
+    left: 50%;
+    bottom: 4vh;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    text-align: center;
+}
+
+#back:hover {
+    transition: all ease 0.2s;
+    scale: 1.2;
+}
